@@ -1,5 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
+<?
+	/*Группы доступа*/
+$arPERM = Array( "1", "11", "12");
+?>
+
 <?/*Навигационная цепочка для вложенных категорий*/
 	if(!function_exists('breadcrumb'))	
 	{
@@ -18,6 +23,14 @@
 			}
 		}
 	}
+?>
+
+<?
+	 $arGrpUsr = $USER->GetUserGroupArray();
+	 $arRez = array_intersect($arGrpUsr, $arPERM);
+	 if(empty($arGrpUsr)){
+			echo "шаблон termodomAdvert\components\bitrix\news\advert\section.php arGrpUsr - пустой";
+		}
 ?>
 
 <div class="grid-12">
@@ -93,6 +106,23 @@
 							?>	
 							</ul>
 						</div>
+						<h2>Новые объявления</h2>
+				<?else:?>
+					<?if(!empty($arRez)):?>
+						<div class="a-new">
+							<strong>Хотите опубликовать свое объявление?</strong>
+							<a class="btn green" href="">Подать объявление</a>
+						</div>
+					<?else:?>	
+						<div class="a-new">
+							<strong>
+								Хотите опубликовать свое объявление?
+								<a href="">Войдите</a>
+								или
+								<a href="">зарегистрируйтесь</a>
+							</strong>
+						</div>
+					<?endif?>	
 				<?endif?>	
 
 				<?if($arParams["USE_FILTER"]=="Y"):?>

@@ -52,7 +52,10 @@
             </div><!--/bottom-->
         </div>
   
-</div><!--/page surround -->
+			</div><!--page-surround-baloon-->
+		</div><!--/page surround -->
+	</div><!--page-surround-0-->
+</div><!--page-surround-house-->
 
 </body>
 </html>
