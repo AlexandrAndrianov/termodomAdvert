@@ -315,7 +315,12 @@ $arPERM = Array( "1", "11", "12");
 																													 Array("CODE"=>"PROP_PRICE"));
 										$arProp = $db_prop->Fetch();
 									?>
-									<p class="clist-price"><?=$arProp['VALUE']?></p>
+									<p class="clist-price">
+										<?
+												$price = preg_replace('/[^0-9]/i', '', $arProp['VALUE']);
+										?>
+										<?=$price?> руб.
+									</p>
 									<?if (
 										$arParams["SHOW_RATING"] == "Y"
 										&& strlen($arItem["RATING_TYPE_ID"]) > 0

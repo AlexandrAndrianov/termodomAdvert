@@ -115,7 +115,11 @@
 											<div style="clear:both"></div>
 										<?endif?>
 										<p class="clist-price">
-											<?=$arItem["DISPLAY_PROPERTIES"]["PROP_PRICE"]["VALUE"]?>
+											<?
+												$price = preg_replace('/[^0-9]/i', '',
+																							$arItem["DISPLAY_PROPERTIES"]["PROP_PRICE"]["VALUE"]);
+											?>
+											<?=$price?> руб.
 										</p>
 										
 										<p class="company-s-c-cat">
